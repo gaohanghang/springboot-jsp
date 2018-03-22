@@ -1,11 +1,26 @@
 
 package com.itmayiedu.controller;
 
+import com.itmayiedu.mapper.UserMapper;
+import com.itmayiedu.test01.dao.UserMapperTest01;
+import com.itmayiedu.test01.service.UserServiceTest01;
+import com.itmayiedu.test02.dao.UserMapperTest02;
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class IndexController {
+	@Autowired
+	private UserMapper userMapper;
+	@Autowired
+	private UserMapperTest01 userMapperTest01;
+	@Autowired
+	private UserMapperTest02 userMapperTest02;
+	@Autowired
+	private UserServiceTest01 userServiceTest01;
 
 	@RequestMapping("/index")
 	public String index() {
@@ -13,4 +28,31 @@ public class IndexController {
 		return "index";
 	}
 
+	@ResponseBody
+	@RequestMapping("/findByName")
+	public User findByName(String name) {
+		System.out.println("this is index...");
+		return userMapper.findByName(name);
+	}
+
+	@ResponseBody
+	@RequestMapping("/insert")
+	public String insert(String name, Integer age) {
+		userMapper.insert(name, age);
+		return "success";
+	}
+
+	@ResponseBody
+	@RequestMapping("/insertTest001")
+	public String insertTest001(String name, Integer age) {
+		userServiceTest01.insertTest001(name, age);
+		return "success";
+	}
+
+	@ResponseBody
+	@RequestMapping("/insertTest002")
+	public String insertTest002(String name, Integer age) {
+		userMapperTest02.insert(name, age);
+		return "success";
+	}
 }
