@@ -11,7 +11,7 @@ public class UserServiceTest02 {
     @Transactional
     public String insertTest002(String name, Integer age) {
         userMapperTest02.insert(name, age);
-        int i = 1/0;
+//        int i = 1/0;
         return "success";
     }
 }
