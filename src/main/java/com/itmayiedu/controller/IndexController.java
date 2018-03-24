@@ -1,11 +1,12 @@
 
 package com.itmayiedu.controller;
 
+import com.itmayiedu.entity.User;
 import com.itmayiedu.mapper.UserMapper;
-import com.itmayiedu.test01.dao.UserMapperTest01;
-import com.itmayiedu.test01.service.UserServiceTest01;
-import com.itmayiedu.test02.dao.UserMapperTest02;
-import org.apache.catalina.User;
+//import com.itmayiedu.test01.dao.UserMapperTest01;
+//import com.itmayiedu.test01.service.UserServiceTest01;
+//import com.itmayiedu.test02.dao.UserMapperTest02;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,11 +20,11 @@ public class IndexController {
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
-	private UserMapperTest01 userMapperTest01;
-	@Autowired
-	private UserMapperTest02 userMapperTest02;
-	@Autowired
-	private UserServiceTest01 userServiceTest01;
+//	private UserMapperTest01 userMapperTest01;
+//	@Autowired
+//	private UserMapperTest02 userMapperTest02;
+//	@Autowired
+//	private UserServiceTest01 userServiceTest01;
 	@Value("${itmayiedu}")
 	private String itmayiedu;
 
@@ -47,28 +48,28 @@ public class IndexController {
 		return "success";
 	}
 
-	@ResponseBody
-	@RequestMapping("/insertTest001")
-	public String insertTest001(String name, Integer age) {
-		userServiceTest01.insertTest001(name, age);
-		return "success";
-	}
-
-	@ResponseBody
-	@RequestMapping("/insertTest002")
-	public String insertTest002(String name, Integer age) {
-		userMapperTest02.insert(name, age);
-		return "success";
-	}
-
-	@ResponseBody
-	@RequestMapping("/sendMsg")
-	public String sendMsg() {
-		System.out.println("###sendMsg###1");
-		userServiceTest01.sendSms();
-		System.out.println("###sendMsg###2");
-		return "success";
-	}
+//	@ResponseBody
+//	@RequestMapping("/insertTest001")
+//	public String insertTest001(String name, Integer age) {
+//		userServiceTest01.insertTest001(name, age);
+//		return "success";
+//	}
+//
+//	@ResponseBody
+//	@RequestMapping("/insertTest002")
+//	public String insertTest002(String name, Integer age) {
+//		userMapperTest02.insert(name, age);
+//		return "success";
+//	}
+//
+//	@ResponseBody
+//	@RequestMapping("/sendMsg")
+//	public String sendMsg() {
+//		System.out.println("###sendMsg###1");
+//		userServiceTest01.sendSms();
+//		System.out.println("###sendMsg###2");
+//		return "success";
+//	}
 
 	@ResponseBody
 	@RequestMapping("/getValue")

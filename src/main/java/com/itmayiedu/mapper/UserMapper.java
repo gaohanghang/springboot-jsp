@@ -1,6 +1,7 @@
 package com.itmayiedu.mapper;
 
-import org.apache.catalina.User;
+
+import com.itmayiedu.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
